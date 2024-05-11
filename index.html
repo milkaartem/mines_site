@@ -69,13 +69,11 @@
         function generateNumber() {
     // Сначала показываем гифку загрузки
             document.querySelector(".photo-container img").src = loadingGif;
-            const randomDelay = Math.random() + 2;
-            // Через 1 секунду заменяем её на случайное изображение
+            const randomIndex = Math.floor(Math.random() * images.length);
+            const randomImage = images[randomIndex];
             setTimeout(() => {
-                const randomIndex = Math.floor(Math.random() * images.length);
-                const randomImage = images[randomIndex];
                 document.querySelector(".photo-container img").src = randomImage;
-            }, 2580); // 1000 миллисекунд = 1 секунда
+            }, 2900); // 1000 миллисекунд = 1 секунда
         }
     </script>
 
