@@ -35,6 +35,7 @@
         <div class="container">
             <h1 style="color: azure; font-size: 8vw; font-family: 'Kanit', sans-serif; font-weight: 400; font-style: normal;">OpenAI MINES</h1>
             <h1 style="color: azure; font-size: 4vw; font-family: 'Kanit', sans-serif; font-weight: 400; font-style: normal;">@mines_openai_bot</h1>
+            <p id="game_id" style="color: azure; font-size: 4vw; font-family: 'Kanit', sans-serif; font-weight: 400; font-style: normal; margin-top: 30px;">Session ID: n/a | Chance: n/a%</p>
             <div class="photo-container" style="border: 2px solid rgb(188,19,254); width: 55%; display: block; margin: 40px auto 20px auto; box-shadow: 0 0 30px 10px rgb(188,19,254); border-radius: 7px">
                 <img src="assets/232.png" style="border-radius: 7px" class="img-fluid rounded" alt="Фотография">
             </div>
@@ -48,6 +49,8 @@
 
     <script>
         const loadingGif = "assets/load.gif";
+        let gameId = Math.floor(1000000 + Math.random() * 9000000);
+        document.querySelector("#game_id").textContent = `Session ID: ${gameId} | Chance: n/a%`;
         const images = [
             "assets/mines1.jpg",
             "assets/mines2.jpg",
@@ -71,8 +74,12 @@
             document.querySelector(".photo-container img").src = loadingGif;
             const randomIndex = Math.floor(Math.random() * images.length);
             const randomImage = images[randomIndex];
+
+
+            let chance = (Math.floor(Math.random() * 9) + 87) + "%";
             setTimeout(() => {
                 document.querySelector(".photo-container img").src = randomImage;
+                document.querySelector("#game_id").textContent = `Session ID: ${gameId} | Chance: ${chance}`;
             }, 2900); // 1000 миллисекунд = 1 секунда
         }
     </script>
