@@ -74,7 +74,7 @@
             document.querySelector(".photo-container img").src = loadingGif;
             const randomIndex = Math.floor(Math.random() * images.length);
             const randomImage = images[randomIndex];
-
+            document.querySelector("#game_id").textContent = `Session ID: ${gameId} | Chance: ?%`;
 
             let chance = (Math.floor(Math.random() * 9) + 87) + "%";
             setTimeout(() => {
